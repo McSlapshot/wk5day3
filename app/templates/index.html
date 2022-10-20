@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Welcome to TheGram</h1>
+    {% if current_user.is_authenticated %}
+    <ol>
+    {% for p in names %}
+        {% if p.name == 'Sia' %}
+
+            <li><strong>{{ p.name }} is {{ p['age'] }} years old</strong></li>
+
+        {% else %}
+
+            <li>{{ p.name }} is {{ p['age'] }} years old</li>
+
+        {% endif %}
+
+    {% endfor %}
+    </ol>
+    {% else %}
+    <P>Login or Sign Up below!</P>
+    {% endif %}
+    {% if current_user.is_authenticated %}
+
+   
+
+
+    {% else %}
+
+    <a href="/log-me-in">Login Page</a>
+    <a href="/signup">Sign Up</a>
+
+    {% endif %}
+{% endblock %}
